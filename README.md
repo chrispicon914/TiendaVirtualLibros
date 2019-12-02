@@ -13,7 +13,9 @@ La tienda virtual también podrá ser accedida desde una app móvil la misma que
 El diseño de la página web (Administrativa) será diseñado en el ámbito Eclipse JEE, mediante los conocimientos adquiridos en clase. La misma tendrá las siguientes opciones:
 
 **Web (Administración).** 
+
 • Mantenimiento de Usuarios, Productos (Libros) 
+
 • Consultas (Productos más vendidos, clientes que más compran, productos más votados)
 
 **Aplicación móvil.**
