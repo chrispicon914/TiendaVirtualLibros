@@ -2,6 +2,7 @@
 Proyecto Interciclo sobre tienda virtual de libros 
 
 # INTRODUCCION
+
 El Diseño y la Implementación de una Tienda Virtual tiene como resultado una aplicación Web desde la cual, una empresa pueda ampliar sus ventas mediante el comercio electrónico de manera fácil, rápida y sencilla.
 
 De esta manera, se facilita a los clientes la opción de realizar sus compras sin salir de casa o simplemente, visualizar los artículos disponibles o consultar el estado de algún pedido realizado anteriormente.
@@ -19,14 +20,20 @@ El diseño de la página web (Administrativa) será diseñado en el ámbito Ecli
 • Consultas (Productos más vendidos, clientes que más compran, productos más votados)
 
 **Aplicación móvil.**
+
 • Registro de clientes 
+
 • Búsqueda de productos 
+
 • Carrito de compras 
+
 • Votación de Productos 
+
 • Compartir productos a otros usuarios
 
 # OBJETIVOS
-•	**OBJETIVO GENERAL**
+**OBJETIVO GENERAL**
+
 Diseñar y desarrollar una aplicación que permita realizar compras on-line de libros (tienda virtual), exponiendo la información más relevante de los productos ofertados.
 
 **OBJETIVOS ESPECÍFICOS**
@@ -46,14 +53,21 @@ Una tienda en línea (también conocida como tienda online, tienda virtual o tie
 # REQUERIMIENTOS FUNCIONALES Y NO 
 
 **REQUERIMIENTOS FUNCIONALES**
-RF1: Al ingresar en la aplicación se mostrarán las opciones de Ingresar y Registrarse 
+
+RF1: Al ingresar en la aplicación se mostrarán las opciones de Ingresar y Registrarse
+
 RF2: Al seleccionar “Ingresar” se ingresará el usuario y contraseña. 
+
 RF3: Al seleccionar “Registrarse” se deberá ingresar los siguientes datos: cédula, nombres, apellidos, edad, dirección, teléfono, email (este será el usuario para el inicio de sesión) y una contraseña. 
+
 RF4: Al seleccionar “Iniciar Sesión” se mostrará un menú de opciones y categorías de los libros de interés y una opción de búsqueda según el interés.
 
 **REQUERIMIENTOS NO FUNCIONALES**
+
 RNF1: El sistema contará con una web transaccional y una aplicación móvil. 
+
 RNF2: La aplicación debe tener un manejo intuitivo. 
+
 RNF3: La aplicación poseerá un diseño que sea agradable a la vista. RNF4: Deberá ser compatible con el api 28 de Android.
 
 CRONOGRAMA
