@@ -50,6 +50,11 @@ Una tienda en línea (también conocida como tienda online, tienda virtual o tie
 
 **Casa del Libro** es una de las tiendas más populares de Internet para comprar libros. Aquí lo encontrarás prácticamente todo y podrás hacerte socio. El servicio que ofrecen es más o menos como el de Amazon. Pagas una cuota anual de diez euros. Y a cambio, recibes los libros sin coste a casa.
 
+# Alcance 
+
+La motivación del proyecto es facilitar el acceso a la información y comunicación de los interesados en la lectura. Con el desarrollo de una aplicación móvil para tecnologías Android e iOS, incluyendo acceso a la información de una gran variedad de libros disponibles. Además se contara con un diseño intuitivo y amigable permitiendo de esta manera que los usuarios accedan fácilmente a la información presentada en la aplicación. 
+
+
 # REQUERIMIENTOS FUNCIONALES Y NO 
 
 **REQUERIMIENTOS FUNCIONALES**
