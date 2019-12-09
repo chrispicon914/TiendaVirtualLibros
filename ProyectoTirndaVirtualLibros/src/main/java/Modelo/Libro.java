@@ -23,6 +23,16 @@ public class Libro {
 	@JoinColumn(name="aut_codigo")
 	@JsonIgnore
 	private Autor autor;
+	
+	@OneToOne
+	@JoinColumn(name="inv_codigo")
+	@JsonIgnore
+	private Inventario inventario;
+	
+	@OneToOne
+	@JoinColumn(name="cli_codigo")
+	@JsonIgnore
+	private Cliente cliente;
 
 	@Transient
 	private int idTipo;
@@ -85,12 +95,33 @@ public class Libro {
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
+	
+	
+
+	public Inventario getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
 	@Override
 	public String toString() {
 		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
-				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + "]";
+				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", autor=" + autor
+				+ ", inventario=" + inventario + ", cliente=" + cliente + "]";
 	}
+
+
 	
 	
 	
