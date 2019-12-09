@@ -35,8 +35,8 @@ public class Autor {
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="aut_codigo")
-	private List<Libro> libros;
+	@JoinColumn(name="autLib_codigo")
+	private List<Libro> autLibros;
 
 
 	public int getCodigo() {
@@ -79,21 +79,24 @@ public class Autor {
 	}
 
 
-	public List<Libro> getLibros() {
-		return libros;
+	public List<Libro> getAutLibros() {
+		return autLibros;
 	}
 
 
-	public void setLibros(List<Libro> libros) {
-		this.libros = libros;
+	public void setAutLibros(List<Libro> autLibros) {
+		this.autLibros = autLibros;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Autor [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", nacionalidad="
-				+ nacionalidad + ", libros=" + libros + "]";
-	}   
+				+ nacionalidad + ", autLibros=" + autLibros + "]";
+	}
+
+
+	   
 	
 	
 }

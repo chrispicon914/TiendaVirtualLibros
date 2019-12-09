@@ -1,4 +1,4 @@
-package Utils;
+ package Utils;
 
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;

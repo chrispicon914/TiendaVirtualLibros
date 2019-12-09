@@ -20,22 +20,22 @@ public class Cliente {
 	
 	@NotNull
 	@Size(min=10, max=10)
-	@Column(name="aut_Cedula")
+	@Column(name="aut_Nombre")
 	private String nombre;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Nombre")
+	@Column(name="aut_Apellido")
 	private String apellido;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Apellido")
+	@Column(name="aut_Direccion")
 	private String direccion;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Apellido")
+	@Column(name="aut_correo")
 	private String correo;
 	
 	

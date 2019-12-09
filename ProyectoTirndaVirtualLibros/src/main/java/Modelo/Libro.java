@@ -18,22 +18,20 @@ public class Libro {
     private String editorial;
 	private int anio;
     private String disponibilidad;
+    private int stock;
 		
-	@OneToOne
-	@JoinColumn(name="aut_codigo")
-	@JsonIgnore
-	private Autor autor;
 	
-	@OneToOne
-	@JoinColumn(name="inv_codigo")
-	@JsonIgnore
-	private Inventario inventario;
-	
-	@OneToOne
-	@JoinColumn(name="cli_codigo")
-	@JsonIgnore
-	private Cliente cliente;
-
+	  @OneToOne
+	  @JoinColumn(name="LibAut_codigo")
+	  @JsonIgnore
+	  private AutorLibro autorLib;
+	  
+	 	  	  
+	  @OneToOne
+	   @JoinColumn(name="cli_codigo")
+	  @JsonIgnore
+	  private Cliente cliente;
+	 
 	@Transient
 	private int idTipo;
 	
@@ -87,39 +85,43 @@ public class Libro {
 	public void setDisponibilidad(String disponibilidad) {
 		this.disponibilidad = disponibilidad;
 	}
-
-	public Autor getAutor() {
-		return autor;
-	}
-
-	public void setAutor(Autor autor) {
-		this.autor = autor;
-	}
 	
 	
 
-	public Inventario getInventario() {
-		return inventario;
+	public int getStock() {
+		return stock;
 	}
 
-	public void setInventario(Inventario inventario) {
-		this.inventario = inventario;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
 	@Override
 	public String toString() {
 		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
-				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", autor=" + autor
-				+ ", inventario=" + inventario + ", cliente=" + cliente + "]";
+				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock + "]";
 	}
+
+	
+
+	/*
+	 * public Autor getAutor() { return autor; }
+	 * 
+	 * public void setAutor(Autor autor) { this.autor = autor; }
+	 * 
+	 * 
+	 * 
+	 * public Inventario getInventario() { return inventario; }
+	 * 
+	 * public void setInventario(Inventario inventario) { this.inventario =
+	 * inventario; }
+	 * 
+	 * public Cliente getCliente() { return cliente; }
+	 * 
+	 * public void setCliente(Cliente cliente) { this.cliente = cliente; }
+	 */
+
+	
 
 
 	
