@@ -102,10 +102,10 @@ public class LibroController {
 	}
 	
 	
-	public void addActividades() {
-		libro.addActividades(new Actividades());
-		System.out.println("tele "+libro.getActividades().size());
-	}
+	/*
+	 * public void addActividades() { libro.addActividades(new Actividades());
+	 * System.out.println("tele "+libro.getActividades().size()); }
+	 */
 	
 	
 }

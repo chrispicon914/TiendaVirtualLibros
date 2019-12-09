@@ -60,8 +60,9 @@ public class ClienteDAO {
 		Query q=em.createQuery(jpql, Cliente.class);
 		
 		List<Cliente> clientes=q.getResultList();
-		for(Cliente d: clientes)
-			d.getActividades().size();
+		/*
+		 * for(Cliente d: clientes) d.getActividades().size();
+		 */
 		return clientes;
 	}
 	

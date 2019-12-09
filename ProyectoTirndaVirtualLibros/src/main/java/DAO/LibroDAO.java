@@ -61,8 +61,9 @@ public class LibroDAO {
 		Query q=em.createQuery(jpql, Libro.class);
 		
 		List<Libro> libros=q.getResultList();
-		for(Libro d: libros)
-			d.getActividades().size();
+		/*
+		 * for(Libro d: libros) d.getActividades().size();
+		 */
 		return libros;
 	}
 	
