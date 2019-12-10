@@ -14,9 +14,6 @@ public class LibroON {
 	@Inject
 	private LibroDAO dao;
 	
-	/*
-	 * @Inject private Instalacion init;
-	 */
 	
 	public void guardar(Libro l) throws Exception {
 	

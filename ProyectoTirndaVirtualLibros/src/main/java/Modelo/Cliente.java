@@ -38,6 +38,10 @@ public class Cliente {
 	@Column(name="aut_correo")
 	private String correo;
 	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="aut_correoontrasenia")
+	private String contrasenia;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="aut_codigo")
@@ -103,12 +107,25 @@ public class Cliente {
 		this.libros = libros;
 	}
 
+	
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
-				+ direccion + ", correo=" + correo + ", libros=" + libros + "]";
+				+ direccion + ", correo=" + correo + ", contrasenia=" + contrasenia + ", libros=" + libros + "]";
 	}
+
+
 	
 	
 }

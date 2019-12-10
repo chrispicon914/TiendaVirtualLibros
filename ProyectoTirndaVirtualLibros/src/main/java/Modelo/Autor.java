@@ -35,7 +35,7 @@ public class Autor {
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="autLib_codigo")
+	@JoinColumn(name="libaut_codigo")
 	private List<Libro> autLibros;
 
 

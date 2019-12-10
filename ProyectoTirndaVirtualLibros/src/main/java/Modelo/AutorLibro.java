@@ -14,12 +14,36 @@ public class AutorLibro {
 	private int codigo;
 	
 	@OneToOne
-	@JoinColumn(name="LibAut_codigo")
+	@JoinColumn(name="autLib_codigo")
 	@JsonIgnore
 	private Libro libro;
 	
 	@OneToOne
-	@JoinColumn(name="autLib_codigo")
+	@JoinColumn(name="libaut_codigo")
 	@JsonIgnore
 	private Autor autor;
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public Libro getLibro() {
+		return libro;
+	}
+
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
 }

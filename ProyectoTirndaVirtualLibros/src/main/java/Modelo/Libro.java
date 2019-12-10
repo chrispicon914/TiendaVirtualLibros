@@ -1,10 +1,18 @@
 package Modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -13,25 +21,51 @@ public class Libro {
 	@Id
 	private int codigo;
 	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="lib_Titulo")
 	private String titulo;
+	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="lib_descripcion")
 	private String descripcion;
+	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="lib_editorial")
     private String editorial;
+	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="lib_anio")
 	private int anio;
+	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="lib_disponibilidad")
     private String disponibilidad;
+	
+	@NotNull
+	@Size(min=3, max=40)
+	@Column(name="lib_stock")
     private int stock;
 		
 	
-	  @OneToOne
-	  @JoinColumn(name="LibAut_codigo")
-	  @JsonIgnore
-	  private AutorLibro autorLib;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="autLib_codigo")
+	private List<AutorLibro> autorLib;
 	  
-	 	  	  
-	  @OneToOne
-	   @JoinColumn(name="cli_codigo")
-	  @JsonIgnore
-	  private Cliente cliente;
-	 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="cli_codigo")   
+	private List<Cliente> cliente;
+	
+  
+	@OneToOne
+	@JoinColumn(name="cat_codigo")
+	@JsonIgnore
+	private Categoria categoria;
+	  
 	@Transient
 	private int idTipo;
 	
@@ -104,22 +138,7 @@ public class Libro {
 
 	
 
-	/*
-	 * public Autor getAutor() { return autor; }
-	 * 
-	 * public void setAutor(Autor autor) { this.autor = autor; }
-	 * 
-	 * 
-	 * 
-	 * public Inventario getInventario() { return inventario; }
-	 * 
-	 * public void setInventario(Inventario inventario) { this.inventario =
-	 * inventario; }
-	 * 
-	 * public Cliente getCliente() { return cliente; }
-	 * 
-	 * public void setCliente(Cliente cliente) { this.cliente = cliente; }
-	 */
+	 
 
 	
 
