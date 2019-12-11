@@ -74,7 +74,7 @@ public class ClienteDAO {
 		return docentes;
 	}
 	
-	public List<Cliente> getBusquedaDocente(String filBusqueda){
+	public List<Cliente> getBusquedaCliente(String filBusqueda){
 		String jpql="SELECT c FROM Cliente c "
 				    +" WHERE c.nombre LIKE :filtro ";
 		Query q=em.createQuery(jpql, Cliente.class);

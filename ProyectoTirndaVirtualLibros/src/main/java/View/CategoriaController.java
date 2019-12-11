@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import Business.CategoriaON;
-import Business.LibroON;
 import Modelo.Categoria;
 import Modelo.Libro;
 
@@ -70,20 +69,20 @@ public class CategoriaController {
 		return null;
 	}
 	
-	public Libro getLibro() {
-		return libro;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setDocente(Libro libro) {
-		this.libro = libro;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
-	public List<Libro> getListadoLibro() {
-		return listadoLibro;
+	public List<Categoria> getListadoCategoria() {
+		return listadoCategoria;
 	}
 
-	public void setListadoLibro(List<Libro> listadoLibro) {
-		this.listadoLibro = listadoLibro;
+	public void setListadoCateforia(List<Categoria> listadoCategoria) {
+		this.listadoCategoria = listadoCategoria;
 	}
 
 	public String getNom() {
@@ -94,12 +93,12 @@ public class CategoriaController {
 		this.nom = nom;
 	}
 
-	public List<Libro> getListadoLibroNom() {
-		return listadoLibroNom;
+	public List<Categoria> getListadoCategoriaNom() {
+		return listadoCategoriaNom;
 	}
 
-	public void setListadoDocenteNom(List<Libro> listadoLibroNom) {
-		this.listadoLibroNom = listadoLibroNom;
+	public void setListadoDocenteNom(List<Categoria> listadoCategoriaNom) {
+		this.listadoCategoriaNom = listadoCategoriaNom;
 	}
 	
 	

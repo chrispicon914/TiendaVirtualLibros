@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Libro {
 	@Id
+	@GeneratedValue
 	private int codigo;
 	
 	@NotNull
@@ -37,7 +39,6 @@ public class Libro {
     private String editorial;
 	
 	@NotNull
-	@Size(min=3, max=40)
 	@Column(name="lib_anio")
 	private int anio;
 	
@@ -47,7 +48,6 @@ public class Libro {
     private String disponibilidad;
 	
 	@NotNull
-	@Size(min=3, max=40)
 	@Column(name="lib_stock")
     private int stock;
 		
@@ -62,7 +62,7 @@ public class Libro {
 	
   
 	@OneToOne
-	@JoinColumn(name="cat_codigo")
+	@JoinColumn(name="lib_codigo")
 	@JsonIgnore
 	private Categoria categoria;
 	  
@@ -130,10 +130,37 @@ public class Libro {
 		this.stock = stock;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
-				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock + "]";
+				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock
+				+ ", autorLib=" + autorLib + ", cliente=" + cliente + ", categoria=" + categoria + "]";
+	}
+
+	public List<AutorLibro> getAutorLib() {
+		return autorLib;
+	}
+
+	public void setAutorLib(List<AutorLibro> autorLib) {
+		this.autorLib = autorLib;
+	}
+
+	public List<Cliente> getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(List<Cliente> cliente) {
+		this.cliente = cliente;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	

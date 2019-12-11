@@ -4,59 +4,56 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+         <center> <h1 style="color: red">Ingreso de Categoria</h1> </center>
+</h:head> 
 <body> 
 
 	<h:form>
 	<center>
 		<h:panelGrid columns="3">
-		
-			<h:outputText value="Id:" />
-			<h:inputText value="#{docenteController.docente.id}"  id="txtCodigo"/>
-			<h:message for="txtCodigo"/>
-			
-			<h:outputText value="Cedula:" />
-			<h:inputText value="#{docenteController.docente.cedula}"  id="txtCedula"/>
-			<h:message for="txtCedula"/>
-			
-			<h:outputText value="Nombre:" />
-			<h:inputText value="#{docenteController.docente.nombre}"  id="txtNombre"/>
-			<h:message for="txtNombre"/>
-			
-			<h:outputText value="Apellido:" />
-			<h:inputText value="#{docenteController.docente.apellido}"  id="txtApellido"/>
-			<h:message for="txtApellido"/>
-			
-			<h:outputText value="Dirección:" />
-			<h:inputText value="#{docenteController.docente.direccion}"  id="txtDireccion"/>
-			<h:message for="txtDireccion"/>
-			
-			<h:outputText value="Telefono:" />
-			<h:inputText value="#{docenteController.docente.telefono}"  id="txtTelefono"/>
-			<h:message for="txtTelefono"/>
-			
-				<h:outputLabel value="Actividades" />
-		<h:dataTable value="#{docenteController.docente.actividades}" var="actividades">
-			<h:column>
-				<f:facet name="header">Código</f:facet>
-				<h:inputText value="#{actividades.codigo}" />
-			</h:column>
+								
+			<h:outputText value="Categoria" />
+			<h:inputText value="#{categoriaController.categoria.categoria}"  id="txtCategoria"/>
+			<h:message for="txtCategoria"/>
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+			<h:outputLabel value="Libros a ingresar:" style="font-weight:bold"/>
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+			<h:dataTable value="#{categoriaController.categoria.libros}" var="categoria">
 			<h:column>
 				<f:facet name="header">Nombre</f:facet>
-				<h:inputText value="#{actividades.nombre}" />
+				<h:inputText value="#{categoria.titulo}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Fecha</f:facet>
-				<h:inputText value="#{actividades.fecha}" />
+				<f:facet name="header">Descripción</f:facet>
+				<h:inputText value="#{categoria.descripcion}" />
 			</h:column>
-			
+			<h:column>
+				<f:facet name="header">Editorial</f:facet>
+				<h:inputText value="#{categoria.editorial}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Año</f:facet>
+				<h:inputText value="#{categoria.anio}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Disponibilidad</f:facet>
+				<h:inputText value="#{categoria.disponibilidad}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Stock</f:facet>
+				<h:inputText value="#{categoria.stock}" />
+			</h:column>
 		</h:dataTable>
-	<h:commandButton action="#{docenteController.addActividades()}" value="+ telefono" />
+		<h:commandButton action="#{categoriaController.addLibros()}" value="+ Libros" />
+		</h:panelGrid>
 		<h:outputText value="" />
-		<h:commandButton action="#{docenteController.cargarDatos()}" value="Guardar" />
-	</h:panelGrid>
+		
 	
-			<h:commandButton action="#{docenteController.cargarDatos()}" value="Guardar" />
+	
+			<h:commandButton action="#{categoriaController.cargarDatos()}" value="Guardar" />
 			<h:commandButton action="Listar" immediate="true" value="Listar" />
 		
 	</center>

@@ -40,11 +40,11 @@ public class Cliente {
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_correoontrasenia")
+	@Column(name="aut_contrasenia")
 	private String contrasenia;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="aut_codigo")
+	@JoinColumn(name="cli_codigo")
 	private List<Libro> libros;
 
 

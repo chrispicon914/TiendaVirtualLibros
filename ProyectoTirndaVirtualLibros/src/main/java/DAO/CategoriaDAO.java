@@ -34,10 +34,8 @@ public class CategoriaDAO {
 	}
 	
 	public Categoria read3(int id) {
-		String jpql= "SELECT c "
-				+"      FROM Categoria c "
-				+ "        JOIN FETCH c.libros a "
-				+"   WHERE c.id = :codigo";
+
+		String jpql= "SELECT c FROM Categoria c JOIN FETCH c.libros WHERE c.id = :codigo";
 		Query q= em.createQuery(jpql, Categoria.class);
 		q.setParameter("codigo", id);
 		
