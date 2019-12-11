@@ -38,4 +38,9 @@ public Cliente getCliente(String codigo) {
 	Cliente aux=cdao.read3(codigo);
 	return aux;
  }
+
+public String logueo(String correo, String contrasenia) {
+	return cdao.logueo(correo, contrasenia);
+}
+
 }

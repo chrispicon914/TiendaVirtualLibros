@@ -43,11 +43,12 @@ public class Cliente {
 	@Column(name="aut_contrasenia")
 	private String contrasenia;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="cli_codigo")
-	private List<Libro> libros;
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name="cli_codigo")
+//	private List<Libro> libros;
 
-
+	private boolean permisoAdministrador;
+	
 	public String getCedula() {
 		return cedula;
 	}
@@ -97,14 +98,8 @@ public class Cliente {
 		this.correo = correo;
 	}
 
-
-	public List<Libro> getLibros() {
-		return libros;
-	}
-
-
-	public void setLibros(List<Libro> libros) {
-		this.libros = libros;
+	public boolean isPermisoAdministrador() {
+		return permisoAdministrador;
 	}
 
 	
@@ -119,11 +114,11 @@ public class Cliente {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
-				+ direccion + ", correo=" + correo + ", contrasenia=" + contrasenia + ", libros=" + libros + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
+//				+ direccion + ", correo=" + correo + ", contrasenia=" + contrasenia + ", libros=" + libros + "]";
+//	}
 
 
 	

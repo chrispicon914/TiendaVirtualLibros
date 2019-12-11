@@ -6,33 +6,41 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import Business.AutorON;
+import Modelo.Autor;
 
-import Business.LibroON;
-import Modelo.Libro;
-
+/**
+ * 
+ * @author Cristhian
+ *
+ */
 @ManagedBean
 @ViewScoped
 public class AutorController {
 
-	private Libro libro= new Libro();
-	private List<Libro> listadoLibro;
+	private Autor autores= new Autor();
+	private List<Autor> listadoAutor;
 	private String nom;
-	private List<Libro> listadoLibroNom;
+	private List<Autor> listadoAutorNom;
 	
 	
 	@Inject
-	private LibroON dON;
+	private AutorON dON;
 	
 	//private Instalacion insON;
 	
 	@PostConstruct
 	public void init() {
-		listadoLibro=dON.getListadoLibro();
+		listadoAutor=dON.getListadoAutor();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String cargarDatos() {
 		try {
-			dON.guardar(libro);
+			dON.guardar(autores);
 			init();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,13 +49,23 @@ public class AutorController {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public String editar(int codigo) {
 		System.out.println("codigo editar"+codigo);
-		libro=dON.getDocente(codigo);
-		System.out.println(libro);
+		autores=dON.getAutor(codigo);
+		System.out.println(autores);
 		return "Docente.xhtml";
 	}
 	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public String borrar(int codigo) {
 		System.out.println("codigo borrar"+codigo);
 		try {
@@ -60,29 +78,35 @@ public class AutorController {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String busqueda()
 	{
-		System.out.println("Filtro " + libro.getTitulo());
-		listadoLibroNom=dON.getListadoLibroNombre(libro.getTitulo());
-		dON.getListadoLibroNombre(libro.getTitulo());
+		System.out.println("Filtro " + autores.getNombre());
+		listadoAutorNom=dON.getListadoAutorNombre(autores.getNombre());
+		dON.getListadoAutorNombre(autores.getNombre());
 		
 		return null;
 	}
 	
-	public Libro getLibro() {
-		return libro;
+	/**
+	 */
+	public Autor getAutores() {
+		return autores;
 	}
 
-	public void setDocente(Libro libro) {
-		this.libro = libro;
+	public void setAutor(Autor autores) {
+		this.autores = autores;
 	}
 
-	public List<Libro> getListadoLibro() {
-		return listadoLibro;
+	public List<Autor> getListadoAutor() {
+		return listadoAutor;
 	}
 
-	public void setListadoLibro(List<Libro> listadoLibro) {
-		this.listadoLibro = listadoLibro;
+	public void setListadoAutor(List<Autor> listadoAutor) {
+		this.listadoAutor = listadoAutor;
 	}
 
 	public String getNom() {
@@ -93,12 +117,12 @@ public class AutorController {
 		this.nom = nom;
 	}
 
-	public List<Libro> getListadoLibroNom() {
-		return listadoLibroNom;
+	public List<Autor> getListadoAutorNom() {
+		return listadoAutorNom;
 	}
 
-	public void setListadoDocenteNom(List<Libro> listadoLibroNom) {
-		this.listadoLibroNom = listadoLibroNom;
+	public void setListadoAutorNom(List<Autor> listadoAutorNom) {
+		this.listadoAutorNom = listadoAutorNom;
 	}
 	
 	

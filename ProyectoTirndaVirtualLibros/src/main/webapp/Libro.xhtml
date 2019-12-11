@@ -17,23 +17,20 @@
 	<center>
 		<h:panelGrid columns="3">
 		
-			<h:outputText value="Id:" />
-			<h:inputText value="#{libroController.libro.codigo}"  id="txtCodigo"/>
-			<h:message for="txtCodigo"/>
-			
-			<h:outputText value="Cedula:" />
+				
+			<h:outputText value="Titulo" />
 			<h:inputText value="#{libroController.libro.titulo}"  id="txtCedula"/>
 			<h:message for="txtCedula"/>
 			
-			<h:outputText value="Nombre:" />
+			<h:outputText value="Descripcion" />
 			<h:inputText value="#{libroController.libro.descripcion}"  id="txtNombre"/>
 			<h:message for="txtNombre"/>
 			
-			<h:outputText value="Apellido:" />
+			<h:outputText value="Editorial" />
 			<h:inputText value="#{libroController.libro.editorial}"  id="txtApellido"/>
 			<h:message for="txtApellido"/>
 			
-			<h:outputText value="Dirección:" />
+			<h:outputText value="Disponibilidad" />
 			<h:inputText value="#{libroController.libro.disponibilidad}"  id="txtDireccion"/>
 			<h:message for="txtDireccion"/>
 	</h:panelGrid>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h1>Inicio de Sesion</h1>
+</h:head> 
+<body> 
+
+	<h:form>
+		<h:panelGrid column="2">
+			<h:outputText value="Usuario o correo" for ="coreo" />
+			<h:inputText value="#{loginController.correo}" />
+		</h:panelGrid>
+		
+		<h:panelGrid column="2">
+			<h:outputText value="Contrasenia" for ="contrasenia" />
+			<h:inputText value="#{loginController.contrasenia}" />
+		</h:panelGrid>
+		
+		<h:commandButton action="#{loginController.login()}" value="Ingresar" />
+		<h:outputLabel value="#{loginController.mensaje}" />
+	</h:form>
+	
+</body> 
+</html>

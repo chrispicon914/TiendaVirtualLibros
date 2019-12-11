@@ -53,17 +53,18 @@ public class CategoriaDAO {
 		em.remove(d);
 	}
 	
-	public List<Categoria> getCategoria(){
-		String jpql="SELECT c FROM Categoria c";
-		Query q=em.createQuery(jpql, Categoria.class);
-		
-		List<Categoria> categorias=q.getResultList();
-		
-		  for(Categoria c: categorias) 
-			  c.getLibros().size();
-		 
-		return categorias;
-	}
+//	public List<Categoria> getCategoria(){
+//		String jpql="SELECT c FROM Categoria c";
+//		Query q=em.createQuery(jpql, Categoria.class);
+//		
+//		List<Categoria> categorias=q.getResultList();
+//		
+//		  for(Categoria c: categorias) 
+//			//  c.getLibros().size();
+//		 
+//		
+//		return categorias;
+//	}
 	
 	public List<Categoria> getCategoria2(){
 		String jpql="SELECT c FROM Categoria c";

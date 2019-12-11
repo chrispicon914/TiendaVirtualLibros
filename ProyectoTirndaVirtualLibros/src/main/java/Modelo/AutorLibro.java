@@ -3,10 +3,14 @@ package Modelo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+/**
+ * 
+ * @author Cristhian
+ *
+ */
 
 @Entity
 public class AutorLibro {
@@ -15,16 +19,15 @@ public class AutorLibro {
     @GeneratedValue
 	private int codigo;
 	
-	@OneToOne
-	@JoinColumn(name="autLib_codigo")
-	@JsonIgnore
+	@ManyToOne
 	private Libro libro;
 	
-	@OneToOne
-	@JoinColumn(name="libaut_codigo")
-	@JsonIgnore
+	@ManyToOne
 	private Autor autor;
-
+	
+	@Transient
+	private int temporal;
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -32,6 +35,17 @@ public class AutorLibro {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
+	
+	
 
 	public Libro getLibro() {
 		return libro;
@@ -41,11 +55,18 @@ public class AutorLibro {
 		this.libro = libro;
 	}
 
-	public Autor getAutor() {
-		return autor;
+	public int getTemporal() {
+		return temporal;
 	}
 
-	public void setAutor(Autor autor) {
-		this.autor = autor;
+	public void setTemporal(int temporal) {
+		this.temporal = temporal;
 	}
+
+	@Override
+	public String toString() {
+		return "AutorLibro [codigo=" + codigo +  ", autor=" + autor + "]";
+	}
+	
+	
 }

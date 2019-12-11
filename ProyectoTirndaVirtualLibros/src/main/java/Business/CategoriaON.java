@@ -21,7 +21,7 @@ public class CategoriaON {
 	}
 	
 	public List<Categoria> getListadoCategoria(){
-		return cdao.getCategoria();
+		return cdao.getCategoria2();
 	}
 	
 	public List<Categoria> getListadoCategoriaNombre(String nombre){
@@ -36,6 +36,7 @@ public class CategoriaON {
 		}
 	}
 
+	
 public Categoria getCategoria(int codigo) {
 	Categoria aux=cdao.read3(codigo);
 	return aux;

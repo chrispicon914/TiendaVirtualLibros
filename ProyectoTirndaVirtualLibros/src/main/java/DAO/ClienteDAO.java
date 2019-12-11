@@ -36,7 +36,6 @@ public class ClienteDAO {
 	public Cliente read3(String id) {
 		String jpql= "SELECT c "
 				+"      FROM Cliente c "
-				+ "        JOIN FETCH d.actividades a "
 				+"   WHERE c.cedula = :codigo";
 		Query q= em.createQuery(jpql, Cliente.class);
 		q.setParameter("codigo", id);
@@ -83,6 +82,32 @@ public class ClienteDAO {
 		List<Cliente> clientes=q.getResultList();
 		System.out.println(clientes);
 		return clientes;
+	}
+	
+	
+	public String logueo(String correo, String contrasenia) {
+		
+		String ban="";
+		String jplq= "select c from Cliente c where c.correo= :correo and c.contrasenia = :contrasenia";
+		Query q= em.createQuery(jplq, Cliente.class);
+		q.setParameter("correo", correo);
+		q.setParameter("contrasenia", contrasenia);
+		
+		try {
+			Cliente cli=  (Cliente) q.getSingleResult();
+			if (cli != null) {
+				if (cli.isPermisoAdministrador()) {
+					ban="admin";
+				}else {
+					ban="cliente";
+				}
+			}else {
+				ban="Datos Incorrectos";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return ban;
 	}
 		
 	

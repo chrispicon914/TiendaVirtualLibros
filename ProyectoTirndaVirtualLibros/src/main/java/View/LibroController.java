@@ -8,28 +8,37 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import Business.LibroON;
+import Modelo.Autor;
+import Modelo.AutorLibro;
 import Modelo.Libro;
 
+/**
+ * 
+ * @author Cristhian
+ *
+ */
 @ManagedBean
 @ViewScoped
 public class LibroController {
 
 	private Libro libro= new Libro();
 	private List<Libro> listadoLibro;
-	private String nom;
 	private List<Libro> listadoLibroNom;
 	
-	
+		
 	@Inject
 	private LibroON dON;
-	
-	//private Instalacion insON;
-	
+			
 	@PostConstruct
 	public void init() {
 		listadoLibro=dON.getListadoLibro();
+		
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String cargarDatos() {
 		try {
 			dON.guardar(libro);
@@ -41,13 +50,23 @@ public class LibroController {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public String editar(int codigo) {
 		System.out.println("codigo editar"+codigo);
-		libro=dON.getDocente(codigo);
+		libro=dON.getLibro(codigo);
 		System.out.println(libro);
 		return "Docente.xhtml";
 	}
 	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public String borrar(int codigo) {
 		System.out.println("codigo borrar"+codigo);
 		try {
@@ -60,6 +79,10 @@ public class LibroController {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String busqueda()
 	{
 		System.out.println("Filtro " + libro.getTitulo());
@@ -85,13 +108,6 @@ public class LibroController {
 		this.listadoLibro = listadoLibro;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
 
 	public List<Libro> getListadoLibroNom() {
 		return listadoLibroNom;
@@ -101,11 +117,34 @@ public class LibroController {
 		this.listadoLibroNom = listadoLibroNom;
 	}
 	
-	
-	/*
-	 * public void addActividades() { libro.addActividades(new Actividades());
-	 * System.out.println("tele "+libro.getActividades().size()); }
+	/**
+	 * 
+	 * @param tl
+	 * @return
 	 */
+	public String buscarAutor(AutorLibro tl) {
+		System.out.println("buscando autor " + tl);
+		try {
+			
+			Autor at = dON.buscarAutor(tl.getTemporal());
+			
+			System.out.println(at);
+			tl.setAutor(at);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public String addAutor() {
+		System.out.println("add autor");
+		libro.addAutorLibro(new AutorLibro());
+		return null;
+	}
 	
 }

@@ -21,40 +21,14 @@
 			<h:outputLabel value="Libros a ingresar:" style="font-weight:bold"/>
 			</h:panelGrid>
 			<h:panelGrid columns="2">
-			<h:dataTable value="#{categoriaController.categoria.libros}" var="categoria">
-			<h:column>
-				<f:facet name="header">Nombre</f:facet>
-				<h:inputText value="#{categoria.titulo}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Descripción</f:facet>
-				<h:inputText value="#{categoria.descripcion}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Editorial</f:facet>
-				<h:inputText value="#{categoria.editorial}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Año</f:facet>
-				<h:inputText value="#{categoria.anio}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Disponibilidad</f:facet>
-				<h:inputText value="#{categoria.disponibilidad}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Stock</f:facet>
-				<h:inputText value="#{categoria.stock}" />
-			</h:column>
-		</h:dataTable>
-		<h:commandButton action="#{categoriaController.addLibros()}" value="+ Libros" />
-		</h:panelGrid>
+			
+				</h:panelGrid>
 		<h:outputText value="" />
 		
 	
 	
 			<h:commandButton action="#{categoriaController.cargarDatos()}" value="Guardar" />
-			<h:commandButton action="Listar" immediate="true" value="Listar" />
+			<h:commandButton action="ListarCategoria" immediate="true" value="Listar" />
 		
 	</center>
 </h:form>

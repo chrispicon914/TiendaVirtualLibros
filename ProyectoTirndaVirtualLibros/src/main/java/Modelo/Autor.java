@@ -9,10 +9,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+/**
+ * 
+ * @author Cristhian
+ *
+ */
 @Entity
 public class Autor {
 	@Id
@@ -21,26 +26,26 @@ public class Autor {
 	private int codigo;
 	
 	@NotNull
-	@Size(min=10, max=10)
-	@Column(name="aut_Cedula")
+	@Size(min=3, max=40)
+	@Column(name="aut_Nombre")
 	private String nombre;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Nombre")
+	@Column(name="aut_Apellido")
 	private String apellido;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Apellido")
+	@Column(name="aut_Nacionalidad")
 	private String nacionalidad;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="libaut_codigo")
 	private List<Libro> autLibros;
 
-
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -80,21 +85,19 @@ public class Autor {
 		this.nacionalidad = nacionalidad;
 	}
 
+	@Override
+	public String toString() {
+		return "Autor [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", nacionalidad="
+				+ nacionalidad + "]";
+	}
+
 
 	public List<Libro> getAutLibros() {
 		return autLibros;
 	}
 
-
 	public void setAutLibros(List<Libro> autLibros) {
 		this.autLibros = autLibros;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Autor [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", nacionalidad="
-				+ nacionalidad + ", autLibros=" + autLibros + "]";
 	}
 
 

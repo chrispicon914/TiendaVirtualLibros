@@ -12,52 +12,33 @@
 	<center>
 		<h:panelGrid columns="3">
 		
-			<h:outputText value="Id:" />
-			<h:inputText value="#{docenteController.docente.id}"  id="txtCodigo"/>
-			<h:message for="txtCodigo"/>
-			
 			<h:outputText value="Cedula:" />
-			<h:inputText value="#{docenteController.docente.cedula}"  id="txtCedula"/>
+			<h:inputText value="#{clienteController.cliente.cedula}"  id="txtCedula"/>
 			<h:message for="txtCedula"/>
 			
 			<h:outputText value="Nombre:" />
-			<h:inputText value="#{docenteController.docente.nombre}"  id="txtNombre"/>
-			<h:message for="txtNombre"/>
+			<h:inputText value="#{clienteController.cliente.nombre}"  id="txtNombre"/>
+			<h:message for="txtCedula"/>
 			
 			<h:outputText value="Apellido:" />
-			<h:inputText value="#{docenteController.docente.apellido}"  id="txtApellido"/>
+			<h:inputText value="#{clienteController.cliente.apellido}"  id="txtApellido"/>
 			<h:message for="txtApellido"/>
 			
-			<h:outputText value="Dirección:" />
-			<h:inputText value="#{docenteController.docente.direccion}"  id="txtDireccion"/>
+			<h:outputText value="Direccion:" />
+			<h:inputText value="#{clienteController.cliente.direccion}"  id="txtDireccion"/>
 			<h:message for="txtDireccion"/>
 			
-			<h:outputText value="Telefono:" />
-			<h:inputText value="#{docenteController.docente.telefono}"  id="txtTelefono"/>
+			<h:outputText value="Correo:" />
+			<h:inputText value="#{clienteController.cliente.correo}"  id="txtCorreo"/>
+			<h:message for="txtCorreo"/>
+			
+			<h:outputText value="Contrasenia:" />
+			<h:inputText value="#{clienteController.cliente.contrasenia}"  id="txtContrasenia"/>
 			<h:message for="txtTelefono"/>
 			
-				<h:outputLabel value="Actividades" />
-		<h:dataTable value="#{docenteController.docente.actividades}" var="actividades">
-			<h:column>
-				<f:facet name="header">Código</f:facet>
-				<h:inputText value="#{actividades.codigo}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Nombre</f:facet>
-				<h:inputText value="#{actividades.nombre}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Fecha</f:facet>
-				<h:inputText value="#{actividades.fecha}" />
-			</h:column>
-			
-		</h:dataTable>
-	<h:commandButton action="#{docenteController.addActividades()}" value="+ telefono" />
-		<h:outputText value="" />
-		<h:commandButton action="#{docenteController.cargarDatos()}" value="Guardar" />
-	</h:panelGrid>
+		   </h:panelGrid>
 	
-			<h:commandButton action="#{docenteController.cargarDatos()}" value="Guardar" />
+			<h:commandButton action="#{clienteController.cargarDatos()}" value="Guardar" />
 			<h:commandButton action="Listar" immediate="true" value="Listar" />
 		
 	</center>

@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,17 +11,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+/**
+ * 
+ * @author Cristhian
+ *
+ */
 
 @Entity
 public class Libro {
 	@Id
 	@GeneratedValue
+	@Column(name="aut_Id")	
 	private int codigo;
 	
 	@NotNull
@@ -50,21 +55,11 @@ public class Libro {
 	@NotNull
 	@Column(name="lib_stock")
     private int stock;
-		
 	
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="autLib_codigo")
 	private List<AutorLibro> autorLib;
-	  
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="cli_codigo")   
-	private List<Cliente> cliente;
-	
-  
-	@OneToOne
-	@JoinColumn(name="lib_codigo")
-	@JsonIgnore
-	private Categoria categoria;
 	  
 	@Transient
 	private int idTipo;
@@ -130,15 +125,6 @@ public class Libro {
 		this.stock = stock;
 	}
 
-	
-
-	@Override
-	public String toString() {
-		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
-				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock
-				+ ", autorLib=" + autorLib + ", cliente=" + cliente + ", categoria=" + categoria + "]";
-	}
-
 	public List<AutorLibro> getAutorLib() {
 		return autorLib;
 	}
@@ -147,22 +133,31 @@ public class Libro {
 		this.autorLib = autorLib;
 	}
 
-	public List<Cliente> getCliente() {
-		return cliente;
-	}
+//	public List<Cliente> getCliente() {
+//		return cliente;
+//	}
+//
+//	public void setCliente(List<Cliente> cliente) {
+//		this.cliente = cliente;
+//	}
+//
+//	public Categoria getCategoria() {
+//		return categoria;
+//	}
+//
+//	public void setCategoria(Categoria categoria) {
+//		this.categoria = categoria;
+//	}
+	
+	
 
-	public void setCliente(List<Cliente> cliente) {
-		this.cliente = cliente;
+	public void addAutorLibro(AutorLibro tl) {
+		if(this.autorLib==null)
+			this.autorLib = new ArrayList<>();
+		this.autorLib.add(tl);
+		
 	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
+	
 	
 
 	 

@@ -24,9 +24,9 @@ public class Categoria {
 	private String categoria;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="lib_codigo")   
-	private List<Libro> libros;
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name="lib_codigo")   
+//	private List<Libro> libros;
 
 
 	public int getId() {
@@ -49,28 +49,28 @@ public class Categoria {
 	}
 
 
-	public List<Libro> getLibros() {
-		return libros;
-	}
+//	public List<Libro> getLibros() {
+//		return libros;
+//	}
+//
+//
+//	public void setLibros(List<Libro> libros) {
+//		this.libros = libros;
+//	}
 
 
-	public void setLibros(List<Libro> libros) {
-		this.libros = libros;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Categoria [id=" + id + ", categoria=" + categoria + ", libros=" + libros + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Categoria [id=" + id + ", categoria=" + categoria + ", libros=" + libros + "]";
+//	}
+//	
 	
-	
-	public void addLibros(Libro act) {
-		if (libros==null) {
-			libros=new ArrayList<>();
-		}
-		this.libros.add(act);
-		
-	}
+//	public void addLibros(Libro act) {
+//		if (libros==null) {
+//			libros=new ArrayList<>();
+//		}
+//		this.libros.add(act);
+//		
+//	}
 	
 }

@@ -10,6 +10,11 @@ import Business.CategoriaON;
 import Modelo.Categoria;
 import Modelo.Libro;
 
+/**
+ * 
+ * @author Cristhian
+ *
+ */
 @ManagedBean
 @ViewScoped
 public class CategoriaController {
@@ -23,17 +28,20 @@ public class CategoriaController {
 	@Inject
 	private CategoriaON dON;
 	
-	//private Instalacion insON;
-	
+		
 	@PostConstruct
 	public void init() {
 		listadoCategoria=dON.getListadoCategoria();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String cargarDatos() {
 		try {
 			dON.guardar(categoria);
-			init();
+			//init();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,6 +49,11 @@ public class CategoriaController {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public String editar(int codigo) {
 		System.out.println("codigo editar"+codigo);
 		categoria=dON.getCategoria(codigo);
@@ -48,11 +61,16 @@ public class CategoriaController {
 		return "Libro.xhtml";
 	}
 	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
 	public String borrar(int codigo) {
 		System.out.println("codigo borrar"+codigo);
 		try {
 			dON.borrar(codigo);
-			init();
+			//init();
 		} catch (Exception e) {
 			System.out.println("Error "+ e.getMessage());
 			e.printStackTrace();
@@ -60,6 +78,10 @@ public class CategoriaController {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String busqueda()
 	{
 		System.out.println("Filtro " + categoria.getCategoria());
@@ -103,10 +125,10 @@ public class CategoriaController {
 	
 	
 	
-	  public void addLibros() { 
-		  categoria.addLibros(new Libro());
-	  System.out.println("tele "+categoria.getLibros().size());
-	  }
+//	  public void addLibros() { 
+//		  categoria.addLibros(new Libro());
+//	  System.out.println("tele "+categoria.getLibros().size());
+//	  }
 	 
 	
 }

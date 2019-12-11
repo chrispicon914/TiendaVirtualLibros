@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<h:dataTable value="#{categoriaController.listadoCategoria}" var="categoria">
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{categoria.id}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			#{categoria.categoria}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{categoriaController.editar(categoria.id)}" immediate="true" value="Editar" />
+			<h:commandButton action="#{categoriaController.borrar(categoria.id)}" immediate="true" value="Borrar" />
+			
+		</h:column>
+	
+	</h:dataTable>
+	
+</h:form>
+</body> 
+</html>
