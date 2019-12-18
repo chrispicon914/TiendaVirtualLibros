@@ -33,13 +33,13 @@
 			<h:message for="txtCorreo"/>
 			
 			<h:outputText value="Contrasenia:" />
-			<h:inputText value="#{clienteController.cliente.contrasenia}"  id="txtContrasenia"/>
+			<h:inputText value="#{clienteController.cliente.contrasenia}" immediate="true" id="txtContrasenia"/>
 			<h:message for="txtTelefono"/>
 			
 		   </h:panelGrid>
 	
 			<h:commandButton action="#{clienteController.cargarDatos()}" value="Guardar" />
-			<h:commandButton action="Listar" immediate="true" value="Listar" />
+			<h:commandButton action="ListaCliente" value="Listar" />
 		
 	</center>
 </h:form>

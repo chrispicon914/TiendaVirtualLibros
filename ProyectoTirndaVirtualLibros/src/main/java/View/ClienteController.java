@@ -99,11 +99,5 @@ public class ClienteController {
 	public void setListadoClienteNom(List<Cliente> listadoClienteNom) {
 		this.listadoClienteNom = listadoClienteNom;
 	}
-	
-	
-	/*
-	 * public void addActividades() { libro.addActividades(new Actividades());
-	 * System.out.println("tele "+libro.getActividades().size()); }
-	 */
-	
+		
 }

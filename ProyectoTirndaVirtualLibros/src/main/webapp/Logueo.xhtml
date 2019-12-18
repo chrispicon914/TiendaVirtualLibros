@@ -5,11 +5,14 @@
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head>
-	<h1>Inicio de Sesion</h1>
+	<center>
+		<h1 style="color: red">Logueo:</h1>
+	</center>
 </h:head> 
 <body> 
 
 	<h:form>
+	 <center>
 		<h:panelGrid column="2">
 			<h:outputText value="Usuario o correo" for ="coreo" />
 			<h:inputText value="#{loginController.correo}" />
@@ -22,7 +25,10 @@
 		
 		<h:commandButton action="#{loginController.login()}" value="Ingresar" />
 		<h:outputLabel value="#{loginController.mensaje}" />
+		</center>
 	</h:form>
+	
+	
 	
 </body> 
 </html>

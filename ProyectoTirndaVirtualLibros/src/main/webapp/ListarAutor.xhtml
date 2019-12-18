@@ -7,14 +7,22 @@
  <h:head></h:head> 
 <body> 
 <h:form>
-<h:dataTable value="#{categoriaController.listadoCategoria}" var="categoria">
+<h:dataTable value="#{autorController.listadoAutor}" var="aut">
 		<h:column>
 			<f:facet name="header">Código</f:facet>
-			#{categoria.id}
+			#{aut.codigo}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			#{aut.nombre}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Nombre</f:facet>
-			#{categoria.categoria}
+			#{aut.apellido}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			#{aut.nacionalidad}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Acciones</f:facet>
@@ -22,9 +30,9 @@
 			<h:commandButton action="#{categoriaController.borrar(categoria.id)}" immediate="true" value="Borrar" />
 			
 		</h:column>
-	
+	  
 	</h:dataTable>
-	
+	<h:commandButton action="Libro" immediate="true" value="Dirigirse" />
 </h:form>
 </body> 
 </html>

@@ -52,7 +52,7 @@ public class CategoriaController {
 	/**
 	 * 
 	 * @param codigo
-	 * @return
+	 * @return   
 	 */
 	public String editar(int codigo) {
 		System.out.println("codigo editar"+codigo);
@@ -81,6 +81,7 @@ public class CategoriaController {
 	/**
 	 * 
 	 * @return
+	 * Realiza la búsqueda de una categoria
 	 */
 	public String busqueda()
 	{
@@ -123,12 +124,7 @@ public class CategoriaController {
 		this.listadoCategoriaNom = listadoCategoriaNom;
 	}
 	
-	
-	
-//	  public void addLibros() { 
-//		  categoria.addLibros(new Libro());
-//	  System.out.println("tele "+categoria.getLibros().size());
-//	  }
+
 	 
 	
 }

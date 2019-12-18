@@ -126,9 +126,6 @@ public class AutorController {
 	}
 	
 	
-	/*
-	 * public void addActividades() { libro.addActividades(new Actividades());
-	 * System.out.println("tele "+libro.getActividades().size()); }
-	 */
+	
 	
 }

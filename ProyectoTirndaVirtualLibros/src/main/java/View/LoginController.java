@@ -5,7 +5,11 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import Business.ClienteON;
-
+/**
+ * 
+ * @author Cristhian
+ * Controlador para insertar el logueo
+ */
 @ManagedBean
 public class LoginController {
 
@@ -26,7 +30,7 @@ public class LoginController {
 	public String login() {
 		mensaje= cON.logueo(correo, contrasenia);
 		System.out.println("funciona");
-		return "ListarCategoria";
+		return "Autor";
 	}
 
 	public String getCorreo() {

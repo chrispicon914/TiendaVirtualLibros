@@ -11,7 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+/**
+ * 
+ * @author Cristhian
+ *Creación de tabla cliente
+ */
 @Entity
 public class Cliente {
 	@Id
@@ -19,7 +23,7 @@ public class Cliente {
 	private String cedula;
 	
 	@NotNull
-	@Size(min=10, max=10)
+	@Size(min=3, max=40)
 	@Column(name="aut_Nombre")
 	private String nombre;
 	
@@ -43,9 +47,6 @@ public class Cliente {
 	@Column(name="aut_contrasenia")
 	private String contrasenia;
 	
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@JoinColumn(name="cli_codigo")
-//	private List<Libro> libros;
 
 	private boolean permisoAdministrador;
 	
@@ -114,11 +115,7 @@ public class Cliente {
 	}
 
 
-//	@Override
-//	public String toString() {
-//		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
-//				+ direccion + ", correo=" + correo + ", contrasenia=" + contrasenia + ", libros=" + libros + "]";
-//	}
+
 
 
 	
