@@ -61,6 +61,10 @@ public class Libro {
     @JoinColumn(name="autLib_codigo")
 	private List<AutorLibro> autorLib;
 	  
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="detFac_codigo")
+	private List<DetalleFactura> detFac;
+    
 	@Transient
 	private int idTipo;
 	
@@ -150,6 +154,8 @@ public class Libro {
 //	}
 	
 	
+	
+	
 
 	public void addAutorLibro(AutorLibro tl) {
 		if(this.autorLib==null)
@@ -157,6 +163,23 @@ public class Libro {
 		this.autorLib.add(tl);
 		
 	}
+
+	public List<DetalleFactura> getDetFac() {
+		return detFac;
+	}
+
+	public void setDetFac(List<DetalleFactura> detFac) {
+		this.detFac = detFac;
+	}
+
+	@Override
+	public String toString() {
+		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
+				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock
+				+ ", autorLib=" + autorLib + ", detFac=" + detFac + "]";
+	}
+
+	
 	
 	
 

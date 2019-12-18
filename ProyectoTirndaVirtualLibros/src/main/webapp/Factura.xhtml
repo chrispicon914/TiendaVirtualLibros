@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<center>
+		<h1 style="color: red">Ingreso de Factura</h1>
+		<h1 style="color: black">Realizado por: Cristhian Cabrera</h1>
+	</center>
+</h:head> 
+<body> 
+<h:form>
+	<center>
+		<h:panelGrid columns="3">
+		
+			<h:outputText value="Id:" />
+			<h:inputText value="#{facturaController.factura.codigo}"  id="txtCodigo"/>
+			<h:message for="txtCodigo"/>
+			
+			<h:outputText value="Fecha:" />
+			<h:inputText value="#{facturaController.factura.fecha}"  id="txtFecha"/>
+			<h:message for="txtFecha"/>
+			
+			<h:outputText value="Subtotal:" />
+			<h:inputText value="#{facturaController.factura.subtotal}"  id="txtSubtotal"/>
+			<h:message for="txtSubtotal"/>
+			
+			<h:outputText value="Iva:" />
+			<h:inputText value="#{facturaController.factura.iva}"  id="txtIva"/>
+			<h:message for="txtIva"/>
+			
+			<h:outputText value="Descuento:" />
+			<h:inputText value="#{facturaController.factura.descuento}"  id="txtDescuento"/>
+			<h:message for="txtDescuento"/>
+			
+			<h:outputText value="Costo Envio:" />
+			<h:inputText value="#{facturaController.factura.costoEnvio}"  id="txtCostoE"/>
+			<h:message for="txtCostoE"/>
+			
+			<h:outputText value="Total:" />
+			<h:inputText value="#{facturaController.factura.total}"  id="txtTotal"/>
+			<h:message for="txtTotal"/>
+			
+			<h:outputText value="Estado Carrito:" />
+			<h:inputText value="#{facturaController.factura.estadoCarrito}"  id="txtEstadoC"/>
+			<h:message for="txtEstadoC"/>
+			
+				<h:outputLabel value="Detalles" />
+		<h:dataTable value="#{facturaController.factura.detalles}" var="detalles">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				<h:inputText value="#{detalles.codigo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descripción</f:facet>
+				<h:inputText value="#{detalles.descripcion}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cantidad</f:facet>
+				<h:inputText value="#{detalles.cantidad}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Precio Unitario</f:facet>
+				<h:inputText value="#{detalles.precioUnitario}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Precio Total</f:facet>
+				<h:inputText value="#{detalles.precioTotal}" />
+			</h:column>
+			
+		</h:dataTable>
+	<h:commandButton action="#{facturaController.addDetalles()}" value="+ Detalles" />
+		<h:outputText value="" />
+		
+	</h:panelGrid>
+	
+			<h:commandButton action="#{facturaController.cargarDatos()}" value="Guardar" />
+			<h:commandButton action="Listar" immediate="true" value="Listar" />
+		
+	</center>
+</h:form>
+</body> 
+</html>

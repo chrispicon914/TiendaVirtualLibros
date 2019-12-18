@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 /**
  * 
  * @author Cristhian
- *
+ * Inserta la entidad autor a la base de datos
  */
 @Entity
 public class Autor {
