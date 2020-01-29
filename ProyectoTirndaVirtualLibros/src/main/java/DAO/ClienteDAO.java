@@ -84,6 +84,16 @@ public class ClienteDAO {
 		return clientes;
 	}
 	
+	public List<Cliente> getBusquedaCedulaCliente(String filBusqueda){
+		String jpql="SELECT c FROM Cliente c "
+				    +" WHERE c.cedula LIKE :filtro ";
+		Query q=em.createQuery(jpql, Cliente.class);
+		q.setParameter("filtro", "%"+filBusqueda+"%");
+		
+		List<Cliente> clientes=q.getResultList();
+		System.out.println(clientes);
+		return clientes;
+	}
 	
 	public String logueo(String correo, String contrasenia) {
 		

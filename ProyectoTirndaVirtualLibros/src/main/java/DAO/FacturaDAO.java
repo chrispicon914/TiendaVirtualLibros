@@ -82,6 +82,7 @@ public class FacturaDAO {
 		q.setParameter("filtro", "%"+filBusqueda+"%");
 		
 		List<Factura> facturas=q.getResultList();
+		
 		System.out.println(facturas);
 		return facturas;
 	}

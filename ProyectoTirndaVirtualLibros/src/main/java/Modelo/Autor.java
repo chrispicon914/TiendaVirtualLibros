@@ -43,7 +43,7 @@ public class Autor {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="libaut_codigo")
-	private List<Libro> autLibros;
+	private List<AutorLibro> autLibros;
 
 	
 	public int getCodigo() {
@@ -92,11 +92,11 @@ public class Autor {
 	}
 
 
-	public List<Libro> getAutLibros() {
+	public List<AutorLibro> getAutLibros() {
 		return autLibros;
 	}
 
-	public void setAutLibros(List<Libro> autLibros) {
+	public void setAutLibros(List<AutorLibro> autLibros) {
 		this.autLibros = autLibros;
 	}
 

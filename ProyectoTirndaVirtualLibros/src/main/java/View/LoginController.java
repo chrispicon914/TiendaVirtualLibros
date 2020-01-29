@@ -30,7 +30,7 @@ public class LoginController {
 	public String login() {
 		mensaje= cON.logueo(correo, contrasenia);
 		System.out.println("funciona");
-		return "Autor";
+		return "";
 	}
 
 	public String getCorreo() {

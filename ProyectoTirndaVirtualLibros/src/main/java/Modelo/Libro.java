@@ -25,35 +25,28 @@ import javax.validation.constraints.Size;
 public class Libro {
 	@Id
 	@GeneratedValue
-	@Column(name="aut_Id")	
 	private int codigo;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="lib_Titulo")
 	private String titulo;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="lib_descripcion")
 	private String descripcion;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="lib_editorial")
     private String editorial;
 	
 	@NotNull
-	@Column(name="lib_anio")
 	private int anio;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="lib_disponibilidad")
     private String disponibilidad;
 	
 	@NotNull
-	@Column(name="lib_stock")
     private int stock;
 	
 	

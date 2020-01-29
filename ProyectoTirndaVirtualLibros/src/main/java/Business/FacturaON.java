@@ -29,6 +29,7 @@ public class FacturaON {
 	}
 	
 	public List<Factura> getListadoFacturaFecha(String fecha){
+		
 		return dao.getBusquedaFactura(fecha);
 	}
 	

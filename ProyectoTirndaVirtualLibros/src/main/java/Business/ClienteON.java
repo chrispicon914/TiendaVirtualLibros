@@ -26,6 +26,10 @@ public class ClienteON {
 		return cdao.getBusquedaCliente(nombre);
 	}
 	
+	public List<Cliente> getListadoClienteCedula(String cedula){
+		return cdao.getBusquedaCedulaCliente(cedula);
+	}
+	
 	public void borrar(String codigo ) throws Exception {
 		try {
 			cdao.delete(codigo);

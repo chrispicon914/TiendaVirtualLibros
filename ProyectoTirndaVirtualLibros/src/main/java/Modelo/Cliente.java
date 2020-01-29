@@ -115,6 +115,14 @@ public class Cliente {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
+				+ direccion + ", correo=" + correo + ", contrasenia=" + contrasenia + ", permisoAdministrador="
+				+ permisoAdministrador + "]";
+	}
+
+	
 
 
 
