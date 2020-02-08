@@ -17,10 +17,10 @@ public class DetalleFactura {
 	private double precioUnitario;
 	private double precioTotal;
 	
-	@OneToOne
-	@JoinColumn(name="detFac_codigo")
-	@JsonIgnore
-	private Libro libro;
+//	@OneToOne
+//	@JoinColumn(name="detFac_codigo")
+//	@JsonIgnore
+//	private Libro libro;
 
 	@OneToOne
 	@JoinColumn(name="detFact_codigo")
@@ -58,17 +58,11 @@ public class DetalleFactura {
 		this.precioTotal = precioTotal;
 	}
 	
-	
-	public Libro getLibro() {
-		return libro;
-	}
-	public void setLibro(Libro libro) {
-		this.libro = libro;
-	}
+		
 	@Override
 	public String toString() {
 		return "DetalleFactura [codigo=" + codigo + ", descripcion=" + descripcion + ", cantidad=" + cantidad
-				+ ", precioUnitario=" + precioUnitario + ", precioTotal=" + precioTotal + ", libro=" + libro + "]";
+				+ ", precioUnitario=" + precioUnitario + ", precioTotal=" + precioTotal + "]";
 	}
 	
 	

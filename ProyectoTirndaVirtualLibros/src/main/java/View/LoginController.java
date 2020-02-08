@@ -28,9 +28,14 @@ public class LoginController {
 	}
 	
 	public String login() {
-		mensaje= cON.logueo(correo, contrasenia);
-		System.out.println("funciona");
-		return "";
+		String ba=""; 
+		if (cON.logueo(correo, contrasenia)!="null") {
+			mensaje= cON.logueo(correo, contrasenia);
+			System.out.println("funciona");
+			ba="/Factura";
+		}
+		ba="";
+		return ba;
 	}
 
 	public String getCorreo() {

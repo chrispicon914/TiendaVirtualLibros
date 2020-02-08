@@ -22,17 +22,17 @@ public class FacturaController {
 	private DetalleFactura detalle= new DetalleFactura();
 	
 	@Inject
-	private FacturaON dON;
+	private FacturaON fON;
 	
 		
 	@PostConstruct
 	public void init() {
-		listadoFactura=dON.getListadoFactura();
+		listadoFactura=fON.getListadoFactura();
 	}
 	
 	public String cargarDatos() {
 		try {
-			dON.guardar(factura);
+			fON.guardar(factura);
 			init();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class FacturaController {
 	
 	public String editar(int codigo) {
 		System.out.println("codigo editar"+codigo);
-		factura=dON.getFactura(codigo);
+		//factura=dON.getFactura(codigo);
 		System.out.println(factura);
 		return "Docente.xhtml";
 	}
@@ -51,7 +51,7 @@ public class FacturaController {
 	public String borrar(int codigo) {
 		System.out.println("codigo borrar"+codigo);
 		try {
-			dON.borrar(codigo);
+			fON.borrar(codigo);
 			init();
 		} catch (Exception e) {
 			System.out.println("Error "+ e.getMessage());
@@ -63,8 +63,8 @@ public class FacturaController {
 	public String busqueda()
 	{
 		System.out.println("Filtro " + factura.getFecha());
-		listadoFacturaFec=dON.getListadoFacturaFecha(factura.getFecha());
-		dON.getListadoFacturaFecha(factura.getFecha());
+		listadoFacturaFec=fON.getListadoFacturaFecha(factura.getFecha());
+		fON.getListadoFacturaFecha(factura.getFecha());
 		
 		return null;
 	}

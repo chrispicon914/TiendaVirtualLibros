@@ -105,6 +105,8 @@ public class ClienteDAO {
 		
 		try {
 			Cliente cli=  (Cliente) q.getSingleResult();
+			System.out.println("correo " +cli);
+			
 			if (cli != null) {
 				if (cli.isPermisoAdministrador()) {
 					ban="admin";
@@ -117,6 +119,7 @@ public class ClienteDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
 		return ban;
 	}
 		

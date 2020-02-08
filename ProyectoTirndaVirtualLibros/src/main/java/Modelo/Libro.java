@@ -11,9 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+
 
 /**
  * 
@@ -57,6 +60,15 @@ public class Libro {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="detFac_codigo")
 	private List<DetalleFactura> detFac;
+    
+    @OneToOne
+    private Categoria categoria;
+    
+    @OneToOne
+    private Carrito carrito;
+    
+    @OneToOne
+    private Calificacion calificacion;
     
 	@Transient
 	private int idTipo;

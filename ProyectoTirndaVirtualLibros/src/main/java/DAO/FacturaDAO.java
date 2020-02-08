@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import Modelo.Factura;
-import Modelo.Libro;
 
 @Stateless
 @Startup
@@ -67,13 +66,6 @@ public class FacturaDAO {
 		return facturas;
 	}
 	
-	public List<Factura> getDocente2(){
-		String jpql="SELECT f FROM Factura f";
-		Query q=em.createQuery(jpql, Factura.class);
-		
-		List<Factura> facturas=q.getResultList();
-		return facturas;
-	}
 	
 	public List<Factura> getBusquedaFactura(String filBusqueda){
 		String jpql="SELECT f FROM Factura f "

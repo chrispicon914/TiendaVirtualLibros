@@ -44,7 +44,13 @@ public Cliente getCliente(String codigo) {
  }
 
 public String logueo(String correo, String contrasenia) {
-	return cdao.logueo(correo, contrasenia);
+	System.out.println("Si se loguea "+cdao.logueo(correo, contrasenia));
+	String ban="";
+	//return "/Factura";
+	if (cdao.logueo(correo, contrasenia)=="admin") {
+		ban=cdao.logueo(correo, contrasenia);
+	}
+	return ban;
 }
 
 }

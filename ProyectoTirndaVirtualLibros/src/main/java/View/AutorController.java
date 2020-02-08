@@ -31,7 +31,7 @@ public class AutorController {
 	
 	@PostConstruct
 	public void init() {
-		//listadoAutor=dON.getListadoAutor();
+		listadoAutor=dON.getListadoAutor();
 	}
 	
 	/**

@@ -15,8 +15,10 @@ import javax.ws.rs.core.Response;
 
 import Business.ClienteON;
 import Business.FacturaON;
+import Business.LibroON;
 import Modelo.Cliente;
 import Modelo.Factura;
+import Modelo.Libro;
 
 
 
@@ -30,6 +32,9 @@ public class OperacionesService {
 	
 	@Inject
 	private ClienteON clienteON;
+	
+	@Inject
+	private LibroON libroON;
 	
 	@POST 
 	@Path("/createFactura")
@@ -121,5 +126,19 @@ public  Response insertCliente(Cliente cliente) {
 		
 		
 	}
+	
+	@GET
+	@Path("/logueo")
+	@Produces("application/json")
+		public String logueo(@QueryParam("correo") String correo, @QueryParam("contrasenia") String contrasenia){
+			return clienteON.logueo(correo, contrasenia);
+		}
+	
+	@GET
+	@Path("/listarLibro")
+	@Produces("application/json")
+		public List<Libro> getLibro(){
+			return libroON.getListadoLibro();
+		}
 	
 }

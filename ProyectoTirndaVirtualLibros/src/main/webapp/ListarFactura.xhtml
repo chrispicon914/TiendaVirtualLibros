@@ -9,7 +9,7 @@
 <h:form>
 		<center>
 				
-			<h:dataTable value="#{facturaController.listadoFactura}" var="fac" border="1" id="do">
+			<h:dataTable value="#{facturaController.listadoFactura}" var="fac" border="1" id="fa">
 				<h:column >
 					<f:facet name="header">
 						<h:outputText value="Id" />
@@ -19,59 +19,43 @@
 				
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Fecha" />
+						<h:outputText value="Cedula" />
 					</f:facet>
-					<h:outputText value="#{fac.fecha}"/>
+					<h:outputText value="#{fac.costoEnvio}"/>
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
-						<h:outputText value="Subtotal" />
+						<h:outputText value="Nombre" />
 					</f:facet>
-					<h:outputText value="#{fac.subtotal}" />
+					<h:outputText value="#{fac.estadoCarrito}" />
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
-						<h:outputText value="iva" />
+						<h:outputText value="Apeellido" />
+					</f:facet>
+					<h:outputText value="#{fac.fecha}" />
+				</h:column>
+				
+				<h:column>
+				<f:facet name="header">
+						<h:outputText value="Direccion" />
 					</f:facet>
 					<h:outputText value="#{fac.iva}" />
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
-						<h:outputText value="Descuento" />
+						<h:outputText value="Telefono" />
 					</f:facet>
-					<h:outputText value="#{fac.descuento}" />
+					<h:outputText value="#{fac.subtotal}" />
 				</h:column>
-				
-				<h:column>
-				<f:facet name="header">
-						<h:outputText value="Costo Envio" />
-					</f:facet>
-					<h:outputText value="#{fac.costoEnvio}" />
-				</h:column>
-				
-				<h:column>
-				<f:facet name="header">
-						<h:outputText value="Total" />
-					</f:facet>
-					<h:outputText value="#{fac.total}" />
-				</h:column>
-				
-				<h:column>
-				<f:facet name="header">
-						<h:outputText value="Estado Carrito" />
-					</f:facet>
-					<h:outputText value="#{fac.estadoCarrito}" />
-				</h:column>
-				
-				
 				
 				<h:column>
 			<f:facet name="header">Acciones</f:facet>
-			<h:commandButton action="#{facturaController.editar(doc.id)}" immediate="true" value="Editar" />
-			<h:commandButton action="#{facturaController.borrar(doc.id)}" immediate="true" value="Borrar" />
+			<h:commandButton action="#{factura.editar(fac.codigo)}" immediate="true" value="Editar" />
+			<h:commandButton action="#{factura.borrar(fac.codigo)}" immediate="true" value="Borrar" />
 		</h:column>
 			 
 		</h:dataTable>
@@ -83,66 +67,52 @@
 				<h:commandButton action="#{facturaController.busqueda()}" value="Buscar" />
 		</h:panelGrid>
 			 <br />	
-		<h:dataTable value="#{facturaController.listadoFacturaFec}" var="doc1" border="1">
-			<h:column >
+		<h:dataTable value="#{facturaController.listadoFacturaFec}" var="fac1" border="1">
+				<h:column >
 					<f:facet name="header">
 						<h:outputText value="Id" />
 					</f:facet>
-					<h:outputText value="#{doc1.codigo}" />
+					<h:outputText value="#{fac1.codigo}" />
 				</h:column>
 				
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Cedula" />
 					</f:facet>
-					<h:outputText value="#{doc1.fecha}"/>
+					<h:outputText value="#{fac1.costoEnvio}"/>
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
 						<h:outputText value="Nombre" />
 					</f:facet>
-					<h:outputText value="#{doc1.subtotal}" />
+					<h:outputText value="#{fac1.estadoCarrito}" />
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
 						<h:outputText value="Apeellido" />
 					</f:facet>
-					<h:outputText value="#{doc1.iva}" />
+					<h:outputText value="#{fac1.fecha}" />
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
 						<h:outputText value="Direccion" />
 					</f:facet>
-					<h:outputText value="#{doc1.descuento}" />
+					<h:outputText value="#{fac1.iva}" />
 				</h:column>
 				
 				<h:column>
 				<f:facet name="header">
 						<h:outputText value="Telefono" />
 					</f:facet>
-					<h:outputText value="#{doc1.costoEnvio}" />
-				</h:column>
-				
-				<h:column>
-				<f:facet name="header">
-						<h:outputText value="Direccion" />
-					</f:facet>
-					<h:outputText value="#{doc1.total}" />
-				</h:column>
-				
-				<h:column>
-				<f:facet name="header">
-						<h:outputText value="Telefono" />
-					</f:facet>
-					<h:outputText value="#{doc1.estadoCarrito}" />
+					<h:outputText value="#{fac1.subtotal}" />
 				</h:column>
 		</h:dataTable>
 		<br />
 		<br />
-		<h:commandLink action="/Docente" immediate="true" value="Regresar a Ingresar" />
+		<h:commandLink action="/Factura" immediate="true" value="Regresar a Ingresar" />
 	</center>
 	</h:form>
 </body> 
