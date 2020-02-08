@@ -41,7 +41,7 @@ public class CategoriaController {
 	public String cargarDatos() {
 		try {
 			dON.guardar(categoria);
-			//init();
+			init();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

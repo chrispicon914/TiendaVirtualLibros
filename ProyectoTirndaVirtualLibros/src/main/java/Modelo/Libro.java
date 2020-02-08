@@ -1,8 +1,10 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import javax.enterprise.inject.Typed;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,6 +54,11 @@ public class Libro {
 	@NotNull
     private int stock;
 	
+	@NotNull
+	private int precioVenta;
+	
+	@Typed
+	private byte[] imagen;
 	
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="autLib_codigo")
@@ -177,23 +184,42 @@ public class Libro {
 		this.detFac = detFac;
 	}
 
+	/**
+	 * @return the precioVenta
+	 */
+	public int getPrecioVenta() {
+		return precioVenta;
+	}
+
+	/**
+	 * @param precioVenta the precioVenta to set
+	 */
+	public void setPrecioVenta(int precioVenta) {
+		this.precioVenta = precioVenta;
+	}
+
+	/**
+	 * @return the imagen
+	 */
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	/**
+	 * @param imagen the imagen to set
+	 */
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
 	@Override
 	public String toString() {
 		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
 				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock
-				+ ", autorLib=" + autorLib + ", detFac=" + detFac + "]";
+				+ ", precioVenta=" + precioVenta + ", imagen=" + Arrays.toString(imagen) + ", autorLib=" + autorLib
+				+ ", detFac=" + detFac + ", categoria=" + categoria + ", carrito=" + carrito + ", calificacion="
+				+ calificacion + "]";
 	}
 
-	
-	
-	
-
-	 
-
-	
-
-
-	
-	
 	
 }

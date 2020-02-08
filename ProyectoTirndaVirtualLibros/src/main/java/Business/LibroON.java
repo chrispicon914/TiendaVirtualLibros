@@ -1,9 +1,14 @@
 package Business;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+
+import org.apache.commons.io.IOUtils;
+import org.primefaces.model.UploadedFile;
+
 
 import DAO.AutorDAO;
 import DAO.LibroDAO;
@@ -19,20 +24,37 @@ import Modelo.Libro;
 @Stateless
 public class LibroON {
 
+	
 	@Inject
 	private LibroDAO dao;
 	
 	@Inject
 	private AutorDAO adao;
 	
+	private Libro libro;
+	
 	/**
 	 * 
 	 * @param l
 	 * @throws Exception, guarda la entidad libro recibiendo como parametro al objeto libro
 	 */
-	public void guardar(Libro l) throws Exception {
 	
+	public String guardarProductoImg(Libro libro, UploadedFile file) throws IOException {
+		String redirect = "";
+		System.out.println("llego");
+		//System.out.println(producto);
+		//System.out.println(file);
+		libro.setImagen(IOUtils.toByteArray(file.getInputstream()));
+
+		dao.create(libro);
+		// em.persist(producto);
+		return redirect;
+
+	}
+	public void guardar(Libro l) throws Exception {
 		
+		
+	
 		dao.save(l);
 	}
 	

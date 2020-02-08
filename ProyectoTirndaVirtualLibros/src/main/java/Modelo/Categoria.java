@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 public class Categoria {
 	
 	@Id
-	@NotNull
 	@GeneratedValue
 	private int id;
 	

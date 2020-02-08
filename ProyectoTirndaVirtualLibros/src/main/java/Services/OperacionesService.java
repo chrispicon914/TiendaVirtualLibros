@@ -135,10 +135,17 @@ public  Response insertCliente(Cliente cliente) {
 		}
 	
 	@GET
-	@Path("/listarLibro")
+	@Path("/listarLibros")
 	@Produces("application/json")
-		public List<Libro> getLibro(){
+		public List<Libro> getLibros(){
 			return libroON.getListadoLibro();
+		}
+	
+	@GET
+	@Path("/listarLibrosNombre")
+	@Produces("application/json")
+		public List<Libro> buscarLibrosNombre(@QueryParam("nombre") String nombre){
+			return libroON.getListadoLibroNombre(nombre);
 		}
 	
 }

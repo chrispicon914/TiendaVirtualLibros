@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
+import org.primefaces.model.UploadedFile;
+
 import Business.LibroON;
 import Modelo.Autor;
 import Modelo.AutorLibro;
@@ -21,7 +23,8 @@ import Modelo.Libro;
 @ViewScoped
 public class LibroController {
 
-	private Libro libro= new Libro();
+	private UploadedFile file;
+	private Libro libro;
 	private List<Libro> listadoLibro;
 	private List<Libro> listadoLibroNom;
 	
@@ -31,6 +34,7 @@ public class LibroController {
 			
 	@PostConstruct
 	public void init() {
+		libro= new Libro();
 		listadoLibro=dON.getListadoLibro();
 		
 	}
@@ -42,7 +46,8 @@ public class LibroController {
 	public String cargarDatos() {
 		try {
 			dON.guardar(libro);
-			init();
+			//dON.guardarProductoImg(libro, file);
+			//init();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -135,6 +140,14 @@ public class LibroController {
 		}
 		
 		return null;
+	}
+	
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
 	}
 	
 	/**

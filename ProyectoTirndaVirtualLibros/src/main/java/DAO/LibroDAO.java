@@ -7,6 +7,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
+
 import Modelo.Libro;
 
 /**
@@ -120,10 +122,16 @@ public class LibroDAO {
 		Query q=em.createQuery(jpql, Libro.class);
 		q.setParameter("filtro", "%"+filBusqueda+"%");
 		
-		List<Libro> libros=q.getResultList();
+		List<Libro> libros= q.getResultList();
 		System.out.println(libros);
 		return libros;
 	}
+	
+	public Libro buscarFoto (int id) {
+		Libro foto = em.find(Libro.class, id);
+		return foto;
+	}
+
 	
 	
 }
