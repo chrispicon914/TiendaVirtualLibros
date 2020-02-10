@@ -1,8 +1,10 @@
 package Modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,10 +19,9 @@ public class DetalleFactura {
 	private double precioUnitario;
 	private double precioTotal;
 	
-//	@OneToOne
-//	@JoinColumn(name="detFac_codigo")
-//	@JsonIgnore
-//	private Libro libro;
+	@ManyToOne(fetch = FetchType.EAGER,optional=false)
+	@JoinColumn(name="detFac_codigo")
+	private Libro libro;
 
 	@OneToOne
 	@JoinColumn(name="detFact_codigo")
@@ -59,6 +60,18 @@ public class DetalleFactura {
 	}
 	
 		
+	/**
+	 * @return the libro
+	 */
+	public Libro getLibro() {
+		return libro;
+	}
+	/**
+	 * @param libro the libro to set
+	 */
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
 	@Override
 	public String toString() {
 		return "DetalleFactura [codigo=" + codigo + ", descripcion=" + descripcion + ", cantidad=" + cantidad

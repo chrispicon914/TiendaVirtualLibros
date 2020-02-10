@@ -6,8 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import org.apache.commons.io.IOUtils;
-import org.primefaces.model.UploadedFile;
+
 
 
 import DAO.AutorDAO;
@@ -39,12 +38,12 @@ public class LibroON {
 	 * @throws Exception, guarda la entidad libro recibiendo como parametro al objeto libro
 	 */
 	
-	public String guardarProductoImg(Libro libro, UploadedFile file) throws IOException {
+	public String guardarProductoImg(Libro libro) throws IOException {
 		String redirect = "";
 		System.out.println("llego");
 		//System.out.println(producto);
 		//System.out.println(file);
-		libro.setImagen(IOUtils.toByteArray(file.getInputstream()));
+		//libro.setImagen(IOUtils.toByteArray(file.getInputstream()));
 
 		dao.create(libro);
 		// em.persist(producto);
@@ -75,7 +74,7 @@ public class LibroON {
 	}
 
 public Libro getLibro(int codigo) {
-	Libro aux=dao.read3(codigo);
+	Libro aux=dao.read(codigo);
 	return aux;
  }
 

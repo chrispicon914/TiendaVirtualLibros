@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.enterprise.inject.Typed;
+
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -52,30 +52,29 @@ public class Libro {
     private String disponibilidad;
 	
 	@NotNull
-    private int stock;
+	    private int stock;
 	
 	@NotNull
-	private int precioVenta;
+	private double precioVenta;
 	
-	@Typed
+	@Lob
 	private byte[] imagen;
 	
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="autLib_codigo")
 	private List<AutorLibro> autorLib;
 	  
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="detFac_codigo")
-	private List<DetalleFactura> detFac;
+    @OneToOne
+	private DetalleFactura detFac;
     
     @OneToOne
     private Categoria categoria;
+//    
+//    @OneToOne
+//    private Carrito carrito;
     
     @OneToOne
-    private Carrito carrito;
-    
-    @OneToOne
-    private Calificacion calificacion;
+    private Voto calificacion;
     
 	@Transient
 	private int idTipo;
@@ -176,25 +175,25 @@ public class Libro {
 		
 	}
 
-	public List<DetalleFactura> getDetFac() {
+	public DetalleFactura getDetFac() {
 		return detFac;
 	}
 
-	public void setDetFac(List<DetalleFactura> detFac) {
+	public void setDetFac(DetalleFactura detFac) {
 		this.detFac = detFac;
 	}
 
 	/**
 	 * @return the precioVenta
 	 */
-	public int getPrecioVenta() {
+	public double getPrecioVenta() {
 		return precioVenta;
 	}
 
 	/**
 	 * @param precioVenta the precioVenta to set
 	 */
-	public void setPrecioVenta(int precioVenta) {
+	public void setPrecioVenta(double precioVenta) {
 		this.precioVenta = precioVenta;
 	}
 
@@ -217,7 +216,7 @@ public class Libro {
 		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", editorial="
 				+ editorial + ", anio=" + anio + ", disponibilidad=" + disponibilidad + ", stock=" + stock
 				+ ", precioVenta=" + precioVenta + ", imagen=" + Arrays.toString(imagen) + ", autorLib=" + autorLib
-				+ ", detFac=" + detFac + ", categoria=" + categoria + ", carrito=" + carrito + ", calificacion="
+				+ ", detFac=" + detFac + ", categoria=" + categoria + ", , calificacion="
 				+ calificacion + "]";
 	}
 

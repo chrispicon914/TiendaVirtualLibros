@@ -93,8 +93,9 @@ public class LibroDAO {
 		
 		List<Libro> libros=q.getResultList();
 		
-		  for(Libro l: libros) 
-			  l.getAutorLib().size();
+
+
+		
 		 
 		return libros;
 	}

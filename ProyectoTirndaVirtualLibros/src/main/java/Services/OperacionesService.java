@@ -127,12 +127,6 @@ public  Response insertCliente(Cliente cliente) {
 		
 	}
 	
-	@GET
-	@Path("/logueo")
-	@Produces("application/json")
-		public String logueo(@QueryParam("correo") String correo, @QueryParam("contrasenia") String contrasenia){
-			return clienteON.logueo(correo, contrasenia);
-		}
 	
 	@GET
 	@Path("/listarLibros")
@@ -147,5 +141,32 @@ public  Response insertCliente(Cliente cliente) {
 		public List<Libro> buscarLibrosNombre(@QueryParam("nombre") String nombre){
 			return libroON.getListadoLibroNombre(nombre);
 		}
+	
+	@GET
+	@Path("/libroid")
+	@Produces("application/json")
+	public Libro buscarLibroId(@QueryParam("codigo") int codigo) {
+		return libroON.getLibro(codigo);
+	}
+	
+	@GET
+	@Path("/validarFactura")
+	@Produces("application/json")
+	public List<Object[]> validadFactura(@QueryParam("codigo") int codigo) {
+		return clienteON.validarFactura(codigo);
+	}
+	
+	@GET
+	@Path("log")
+	@Produces("application/json")
+	public Cliente usuarioLog(@QueryParam("un") String un, @QueryParam("pass") String pass) {
+		System.out.println("usuarios");
+		//System.out.println(clienteON.listadousuarioLog(un, pass));
+		return clienteON.logueo(un, pass);
+		
+		
+		
+
+	}
 	
 }

@@ -4,11 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Calificacion {
+public class Voto {
 
 	@Id
 	private int codigo;
 	private int caantidadVotos;
+	
 	public int getCodigo() {
 		return codigo;
 	}

@@ -1,124 +1,142 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<center>
 		<h1 style="color: red">INGRESAR LIBROS</h1>
 	</center>
-</h:head> 
-<body> 
-<h:form enctype="multipart/form-data">
-<center>
-	<h:messages globalOnly="true"/>
+</h:head>
+<body>
+	<h:form enctype="multipart/form-data">
+		<center>
+			<h:messages globalOnly="true" />
 
-	<h:panelGrid columns="3">
-	
-		<h:outputLabel value="Titulo" />
-		<h:inputText value="#{libroController.libro.titulo}" id="txtTitulo" />
-		<h:message for="txtTitulo"/>
-		
-		<h:outputLabel value="descripcion" />
-		<h:inputText value="#{libroController.libro.descripcion}" id="descripcion" />
-		<h:message for="descripcion"/>
-		
-		<h:outputLabel value="Editorial" />
-		<h:inputText value="#{libroController.libro.editorial}" id="txtEditorial" />
-		<h:message for="txtEditorial"/>
-		
-		<h:outputLabel value="anio" />
-		<h:inputText value="#{libroController.libro.anio}" id="anio" />
-		<h:message for="anio"/>
-		
-		<h:outputLabel value="disponibilidad" />
-		<h:inputText value="#{libroController.libro.disponibilidad}" id="disponibilidad" />
-		<h:message for="disponibilidad"/>
-		
-		<h:outputLabel value="stock" />
-		<h:inputText value="#{libroController.libro.stock}" id="stock" />
-		<h:message for="stock"/>
-		
-		<br/>
-		
-		
-			
-		
-	<!--	<h:outputLabel value="AUTORES" /> -->
-		
-					
-		
-		<h:dataTable value="#{libroController.libro.autorLib}" var="tipolibro">
-								
-			<h:column>
-				<f:facet name="header">AUTOR</f:facet>
-				<h:inputText value="#{tipolibro.temporal}" id="txtAutor" >
-					<f:ajax render="lblAutorNombre" execute="txtAutor" listener="#{libroController.buscarAutor(tipolibro)}" />
-				</h:inputText>
-				<h:outputText id="lblAutorNombre" value="#{tipolibro.autor.nombre}" />
-				<h:message for="txtAutor"/>
-			</h:column>
-			
-		</h:dataTable>
-		
-		<h:commandButton action="#{libroController.addAutor()}" value="AGREGAR AUTOR" />
-		
-		
-	
-		<h:outputText value="" />
-		<h:commandButton action="#{libroController.cargarDatos()}" value="Guardar" />
-		<h:commandButton action="Autor" value="Ir a " immediate="true" />
-	</h:panelGrid>
-	
-	
-	<h:dataTable value="#{libroController.listadoLibro}" var="libro" border="4">
-	
-		
-		<h:column>
-		<h:outputText style="color: red" value=" Listar Libro, " />
-			<f:facet name="header">Código</f:facet>
+			<h:panelGrid columns="3">
+
+				<h:outputLabel value="Titulo" />
+				<h:inputText value="#{libroController.libro.titulo}" id="txtTitulo" />
+				<h:message for="txtTitulo" />
+
+				<h:outputLabel value="descripcion" />
+				<h:inputText value="#{libroController.libro.descripcion}"
+					id="descripcion" />
+				<h:message for="descripcion" />
+
+				<h:outputLabel value="Editorial" />
+				<h:inputText value="#{libroController.libro.editorial}"
+					id="txtEditorial" />
+				<h:message for="txtEditorial" />
+
+				<h:outputLabel value="anio" />
+				<h:inputText value="#{libroController.libro.anio}" id="anio" />
+				<h:message for="anio" />
+
+				<h:outputLabel value="disponibilidad" />
+				<h:inputText value="#{libroController.libro.disponibilidad}"
+					id="disponibilidad" />
+				<h:message for="disponibilidad" />
+
+				<h:outputLabel value="stock" />
+				<h:inputText value="#{libroController.libro.stock}" id="stock" />
+				<h:message for="stock" />
+
+				<h:outputLabel value="precio venta" />
+				<h:inputText value="#{libroController.libro.precioVenta}" id="precio" />
+				<h:message for="precio" />
+				<br />
+
+
+
+
+				<!--	<h:outputLabel value="AUTORES" /> -->
+
+
+
+				<h:dataTable value="#{libroController.libro.autorLib}"
+					var="tipolibro">
+
+					<h:column>
+						<f:facet name="header">AUTOR</f:facet>
+						<h:inputText value="#{tipolibro.temporal}" id="txtAutor">
+							<f:ajax render="lblAutorNombre" execute="txtAutor"
+								listener="#{libroController.buscarAutor(tipolibro)}" />
+						</h:inputText>
+						<h:outputText id="lblAutorNombre"
+							value="#{tipolibro.autor.nombre}" />
+						<h:message for="txtAutor" />
+					</h:column>
+
+				</h:dataTable>
+
+				<h:commandButton action="#{libroController.addAutor()}"
+					value="AGREGAR AUTOR" />
+
+
+
+				<h:outputText value="" />
+				<h:commandButton action="#{libroController.cargarDatos()}"
+					value="Guardar" />
+				<h:commandButton action="Autor" value="Ir a " immediate="true" />
+			</h:panelGrid>
+
+
+			<h:dataTable value="#{libroController.listadoLibro}" var="libro"
+				border="4">
+
+
+				<h:column>
+					<h:outputText style="color: red" value=" Listar Libro, " />
+					<f:facet name="header">Código</f:facet>
 			#{libro.codigo}
 		</h:column>
-		
-		<h:column>
-			<f:facet name="header">TITULO</f:facet>
+
+				<h:column>
+					<f:facet name="header">TITULO</f:facet>
 			#{libro.titulo}
 		</h:column>
-		
-		<h:column>
-			<f:facet name="header">EDITORIAL</f:facet>
+
+				<h:column>
+					<f:facet name="header">EDITORIAL</f:facet>
 			#{libro.editorial}
 		</h:column>
-		
-		<h:column>
-			<f:facet name="header">NUMERO DE PAGINAS</f:facet>
+
+				<h:column>
+					<f:facet name="header">NUMERO DE PAGINAS</f:facet>
 			#{libro.descripcion}
 		</h:column>
-		
-			
-		<h:column>
-			<f:facet name="header">AUTOR O AUTORES</f:facet>
-			<h:dataTable var="autor" value="#{libro.autorLib}">
-			<h:column>
+
+
+				<h:column>
+					<f:facet name="header">AUTOR O AUTORES</f:facet>
+					<h:dataTable var="autor" value="#{libro.autorLib}">
+						<h:column>
 				#{autor.autor.nombre} 
 				#{autor.autor.apellido}		
 			</h:column>
+					</h:dataTable>
+				</h:column>
+
+
 			</h:dataTable>
-		</h:column>
-		
-	
-	</h:dataTable>
-  
+
+			<div class="row">
+				<label class="col-md-3 col-form-label">Imagen</label>
+				<div class="col-md-9">
+					<h:inputFile id="file"
+						value="#{libroController.file}" />
+				</div>
+			</div>
+
+
+		</center>
 
 
 
-</center>
-   
 
-                                                
-
-</h:form>
-</body> 
+	</h:form>
+</body>
 </html>

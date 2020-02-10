@@ -27,7 +27,7 @@ public class AutorController {
 	@Inject
 	private AutorON dON;
 	
-	//private Instalacion insON;
+
 	
 	@PostConstruct
 	public void init() {
@@ -41,9 +41,9 @@ public class AutorController {
 	public String cargarDatos() {
 		try {
 			dON.guardar(autores);
-			init();
+			//init();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage()+" errorrrrrrorrrr");
 		}
 		
 		return null;

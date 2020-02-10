@@ -23,7 +23,7 @@ public class Factura {
 	private double total;
 	private String estadoCarrito;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="detFact_codigo")
 	private List<DetalleFactura> detalles;
 	

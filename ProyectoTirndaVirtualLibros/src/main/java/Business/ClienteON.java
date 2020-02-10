@@ -30,12 +30,16 @@ public class ClienteON {
 		return cdao.getBusquedaCedulaCliente(cedula);
 	}
 	
-	public void borrar(String codigo ) throws Exception {
+	public void borrar(int codigo ) throws Exception {
 		try {
 			cdao.delete(codigo);
 		} catch (Exception  e) {
 			throw new  Exception("Error al borrar "+e.getMessage());
 		}
+	}
+	
+	public List<Object[]> validarFactura(int id) {
+		return cdao.validadFacturaa(id);
 	}
 
 public Cliente getCliente(String codigo) {
@@ -43,14 +47,8 @@ public Cliente getCliente(String codigo) {
 	return aux;
  }
 
-public String logueo(String correo, String contrasenia) {
-	System.out.println("Si se loguea "+cdao.logueo(correo, contrasenia));
-	String ban="";
-	//return "/Factura";
-	if (cdao.logueo(correo, contrasenia)=="admin") {
-		ban=cdao.logueo(correo, contrasenia);
-	}
-	return ban;
+public Cliente logueo(String correo, String contrasenia) {
+	return cdao.logueo(correo, contrasenia);
 }
 
 }

@@ -10,7 +10,7 @@
 <h:dataTable value="#{clienteController.listadoCliente}" var="cliente">
 		<h:column>
 			<f:facet name="header">Código</f:facet>
-			#{cliente.cedula}
+			#{cliente.id}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Nombre</f:facet>
@@ -37,7 +37,7 @@
 		
 			<f:facet name="header">Acciones</f:facet>
 			
-			<h:commandButton action="#{clienteController.borrar(cliente.cedula)}" immediate="true" value="Borrar" />
+			<h:commandButton action="#{clienteController.borrar(cliente.id)}" immediate="true" value="Borrar" />
 			
 		</h:column>
 	

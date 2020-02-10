@@ -47,7 +47,7 @@ public class ClienteController {
 		return "Libro.xhtml";
 	}
 	
-	public String borrar(String codigo) {
+	public String borrar(int codigo) {
 		System.out.println("codigo borrar"+codigo);
 		try {
 			dON.borrar(codigo);

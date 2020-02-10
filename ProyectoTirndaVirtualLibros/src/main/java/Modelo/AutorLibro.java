@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author Cristhian
@@ -23,6 +25,7 @@ public class AutorLibro {
 	private Libro libro;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Autor autor;
 	
 	@Transient

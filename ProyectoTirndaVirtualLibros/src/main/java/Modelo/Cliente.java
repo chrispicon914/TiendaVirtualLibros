@@ -1,11 +1,14 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -19,46 +22,42 @@ import javax.validation.constraints.Size;
 @Entity
 public class Cliente {
 	@Id
-	@Column(name="aut_Id")
-	private String cedula;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Nombre")
 	private String nombre;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Apellido")
 	private String apellido;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_Direccion")
 	private String direccion;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_correo")
 	private String correo;
 	
 	@NotNull
 	@Size(min=3, max=40)
-	@Column(name="aut_contrasenia")
 	private String contrasenia;
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Factura> facturas;
 
 	private boolean permisoAdministrador;
 	
-	public String getCedula() {
-		return cedula;
+	public void agregarFactura(Factura factura) {
+		if(facturas == null) {
+			facturas = new ArrayList<Factura>();
+		}
+		facturas.add(factura);
 	}
-
-
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
-
+	
+	
 
 	public String getNombre() {
 		return nombre;
@@ -114,10 +113,53 @@ public class Cliente {
 		this.contrasenia = contrasenia;
 	}
 
+	
+
+	/**
+	 * @param permisoAdministrador the permisoAdministrador to set
+	 */
+	public void setPermisoAdministrador(boolean permisoAdministrador) {
+		this.permisoAdministrador = permisoAdministrador;
+	}
+
+
+	/**
+	 * @return the facturas
+	 */
+	public List<Factura> getFacturas() {
+		return facturas;
+	}
+
+
+	/**
+	 * @param facturas the facturas to set
+	 */
+	public void setFacturas(List<Factura> facturas) {
+		this.facturas = facturas;
+	}
+
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "Cliente [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
+		return "Cliente [c, nombre=" + nombre + ", apellido=" + apellido + ", direccion="
 				+ direccion + ", correo=" + correo + ", contrasenia=" + contrasenia + ", permisoAdministrador="
 				+ permisoAdministrador + "]";
 	}

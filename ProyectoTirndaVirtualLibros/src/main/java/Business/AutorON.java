@@ -15,10 +15,10 @@ public class AutorON {
 	private AutorDAO adao;
 	
 	
-	public void guardar(Autor a) throws Exception {
+	public void guardar(Autor a)  {
 	
 		
-		adao.save(a);
+		adao.create(a);
 	}
 	
 	public List<Autor> getListadoAutor(){

@@ -40,6 +40,5 @@
 	<classpathentry kind="lib" path="D:/memoria/commons-codec-1.10.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Cristhian/Downloads/commons-io-2.6-bin/commons-io-2.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Cristhian/Downloads/commons-io-2.6-bin/commons-io-2.6-test-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Cristhian/Downloads/primefaces-2.2.jar/primefaces-2.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

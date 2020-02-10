@@ -6,8 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-
-import org.primefaces.model.UploadedFile;
+import javax.servlet.http.Part;
 
 import Business.LibroON;
 import Modelo.Autor;
@@ -23,8 +22,8 @@ import Modelo.Libro;
 @ViewScoped
 public class LibroController {
 
-	private UploadedFile file;
-	private Libro libro;
+	private Part file;
+	private Libro libro=new Libro();
 	private List<Libro> listadoLibro;
 	private List<Libro> listadoLibroNom;
 	
@@ -34,7 +33,7 @@ public class LibroController {
 			
 	@PostConstruct
 	public void init() {
-		libro= new Libro();
+		
 		listadoLibro=dON.getListadoLibro();
 		
 	}
@@ -45,9 +44,18 @@ public class LibroController {
 	 */
 	public String cargarDatos() {
 		try {
-			dON.guardar(libro);
-			//dON.guardarProductoImg(libro, file);
-			//init();
+			//dON.gu1=ardar(libro);
+			if(file != null) {
+				int size = (int) file.getSize();
+				byte[] foto;
+				if(size > 0) {
+					foto = new byte[size];
+					file.getInputStream().read(foto);
+					libro.setImagen(foto);
+				}
+			}
+			dON.guardarProductoImg(libro);
+			init();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,14 +150,36 @@ public class LibroController {
 		return null;
 	}
 	
-	public UploadedFile getFile() {
+	
+	
+	/**
+	 * @return the file
+	 */
+	public Part getFile() {
 		return file;
 	}
 
-	public void setFile(UploadedFile file) {
+	/**
+	 * @param file the file to set
+	 */
+	public void setFile(Part file) {
 		this.file = file;
 	}
-	
+
+	/**
+	 * @param libro the libro to set
+	 */
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
+	/**
+	 * @param listadoLibroNom the listadoLibroNom to set
+	 */
+	public void setListadoLibroNom(List<Libro> listadoLibroNom) {
+		this.listadoLibroNom = listadoLibroNom;
+	}
+
 	/**
 	 * 
 	 * @return
