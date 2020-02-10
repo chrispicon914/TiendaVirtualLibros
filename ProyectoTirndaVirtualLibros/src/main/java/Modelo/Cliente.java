@@ -47,6 +47,11 @@ public class Cliente {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Factura> facturas;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name="clie_voto")
+	private List<Voto>votosclie;
+
 
 	private boolean permisoAdministrador;
 	

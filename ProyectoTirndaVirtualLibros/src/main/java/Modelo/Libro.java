@@ -63,6 +63,12 @@ public class Libro {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="autLib_codigo")
 	private List<AutorLibro> autorLib;
+    
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="lib_voto")
+    private List<Voto>libros_votos;
+
 	  
     @OneToOne
 	private DetalleFactura detFac;

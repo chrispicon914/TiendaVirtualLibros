@@ -5,6 +5,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Voto {
+	
+	
 
 	@Id
 	private int codigo;
